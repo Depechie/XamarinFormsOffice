@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using Xamarin.Forms;
 using XamarinOfficeNetStandard.Helpers;
+using XamarinOfficeNetStandard.Interfaces;
 using XamarinOfficeNetStandard.Models;
 using XamarinOfficeNetStandard.Services;
 
@@ -49,6 +50,8 @@ namespace XamarinOfficeNetStandard.ViewModels
                 data.Values.Add(new List<string>() { employee.FirstName, employee.LastName, employee.Email });
 
             _openXMl.InsertDataIntoSheet(excelDocumentPath, "Employees", data);
+
+            DependencyService.Get<IShare>().Share(excelDocumentPath);
         }
     }
 }

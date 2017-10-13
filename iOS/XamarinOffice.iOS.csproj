@@ -117,6 +117,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Resources\" />
+    <Folder Include="PlatformCode\" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="LaunchScreen.storyboard" />
@@ -129,6 +130,7 @@
   <ItemGroup>
     <Compile Include="Main.cs" />
     <Compile Include="AppDelegate.cs" />
+    <Compile Include="PlatformCode\ShareService.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\XamarinOfficeNetStandard\XamarinOfficeNetStandard.csproj">

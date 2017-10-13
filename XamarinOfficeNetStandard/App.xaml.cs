@@ -1,4 +1,5 @@
 ﻿using Xamarin.Forms;
+using XamarinOfficeNetStandard.Interfaces;
 
 namespace XamarinOffice
 {
@@ -9,6 +10,8 @@ namespace XamarinOffice
             InitializeComponent();
 
             MainPage = new Views.XamarinOfficePage();
+
+            DependencyService.Get<IShare>();
         }
 
         protected override void OnStart()
