@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:XamarinOffice"
+    x:Class="XamarinOffice.Views.XamarinOfficePage">
+	<Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <ListView x:Name="EmployeeList"
+            ItemsSource="{Binding Employees}"
+            Margin="0,30,0,0"
+            Grid.Row="0">
+            <ListView.Header>
+                <Grid BackgroundColor="Teal" HeightRequest="30">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+
+                    <Label Text="FirstName" TextColor="White" Grid.Column="0" VerticalOptions="Center"/>
+                    <Label Text="LastName" TextColor="White" Grid.Column="1" VerticalOptions="Center"/>
+                    <Label Text="Email" TextColor="White" Grid.Column="2" VerticalOptions="Center"/>
+                </Grid>
+            </ListView.Header>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid VerticalOptions="CenterAndExpand">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+
+                            <Label Text="{Binding FirstName}" Grid.Column="0" />
+                            <Label Text="{Binding LastName}" Grid.Column="1" />
+                            <Label Text="{Binding Email}" Grid.Column="2" />
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Button Text="Export list to excel" Command="{Binding GenerateExcelCommand}"
+            Grid.Row="1" />
+    </Grid>
+</ContentPage>
